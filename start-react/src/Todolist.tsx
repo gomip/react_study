@@ -1,6 +1,7 @@
 import * as React from 'react'
 import TodoItem, {Todo} from "./TodoItem";
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 const TodoListPage = () => {
 
@@ -48,6 +49,7 @@ const TodoListPage = () => {
 
     return (
         <div>
+            <Link to ="easy">go to Todo</Link>
             {
                 //고유한 key를 부여해준다.
                 //보통은 db의 id값을 준다.
