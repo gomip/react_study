@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {useState} from "react";
+import {useEffect} from "react";
 
 //외부에서 사용하기 위해 export 추가
 export interface Todo{
@@ -23,6 +24,14 @@ const TodoItem:React.FC<Props>= (props) =>{
     const handleUpdateMode=()=>{
         setUpdateMode(!isUpdateMode)
     }
+
+    useEffect(()=>{
+        console.log("샌즈!")
+
+        return ()=>{
+            document.title='빠라바라바라밤'
+        }
+    },[])
 
     const handleUpdate=()=>{
         props.onUpdate({id:props.todo.id,todo})

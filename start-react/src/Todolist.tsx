@@ -1,6 +1,6 @@
 import * as React from 'react'
 import TodoItem, {Todo} from "./TodoItem";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const TodoListPage = () => {
 
@@ -11,6 +11,10 @@ const TodoListPage = () => {
         {id: 2, todo: 'b'},
         {id: 3, todo: 'c'}
     ])
+
+    //조건이 없을 경우 state가 변경되거나 props에 의해 계속 작동됨
+    //두번째 인자로 빈 배열을 넣으면 처음 렌더만 적용됨.
+
 
     const addTodo=()=>{
         //setTodo(todoList.concat({id:4,todo:'d'}))
@@ -48,8 +52,7 @@ const TodoListPage = () => {
                 //고유한 key를 부여해준다.
                 //보통은 db의 id값을 준다.
                 todoList.map((item, idx) =>
-                    <TodoItem key={
-                        `Todo:${item.id}`}
+                    <TodoItem key={`Todo:${item.id}`}
                               todo={item}
                               onRemove={RemoveTodo}
                               onUpdate={UpdateTodo}
